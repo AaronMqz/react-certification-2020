@@ -1,39 +1,31 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-
-import { useAuth } from '../../providers/Auth';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import Card from '../../components/Card';
+import useService from '../../utils/hooks/useService';
 import './Home.styles.css';
 
-function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+const Containerlist = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+`;
 
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+const HomePage = () => {
+  const [youtubeData, setYoutubeData] = useState([]);
+  const { getYoutubeData } = useService();
+
+  useEffect(() => {
+    setYoutubeData(getYoutubeData());
+  }, [getYoutubeData]);
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <Containerlist data-testid="home-page">
+      {youtubeData.map((item) => {
+        return <Card key={item.etag} data={item} />;
+      })}
+    </Containerlist>
   );
-}
+};
 
 export default HomePage;

@@ -1,8 +1,10 @@
-.homepage {
-  text-align: center;
+.card__image {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-.homepage h1 {
-  font-size: 3rem;
-  letter-spacing: -2px;
+.card__image img {
+  left: 0;
+  top: 0;
+  width: 100%;
 }
