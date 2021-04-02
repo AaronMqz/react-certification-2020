@@ -1,11 +1,14 @@
-import { mockData } from '../../service/mockData';
+import axios from 'axios';
 
-const useService = () => {
-  const getYoutubeData = () => {
-    return mockData.items;
+export const useService = () => {
+  const URL = process.env.REACT_APP_API_URL;
+
+  const getYoutubeVideoSearch = (search) => {
+    const searchParams = `${URL}&q=${search}`;
+    return axios.get(searchParams).catch((error) => {
+      throw error;
+    });
   };
 
-  return { getYoutubeData };
+  return { getYoutubeVideoSearch };
 };
-
-export default useService;

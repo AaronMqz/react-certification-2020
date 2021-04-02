@@ -1,28 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Card from '../../components/Card';
-import useService from '../../utils/hooks/useService';
-import './Home.styles.css';
-
-const Containerlist = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 100%;
-`;
+import { useVideoContext } from '../../utils/store/context';
+import { Containerlist } from './Home.styled';
 
 const HomePage = () => {
-  const [youtubeData, setYoutubeData] = useState([]);
-  const { getYoutubeData } = useService();
+  const { videos, getYoutubeSearch } = useVideoContext();
+  const { push } = useHistory();
 
   useEffect(() => {
-    setYoutubeData(getYoutubeData());
-  }, [getYoutubeData]);
+    getYoutubeSearch('');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSelect = (videoId) => {
+    push(`/detail/${videoId}`);
+  };
 
   return (
     <Containerlist data-testid="home-page">
-      {youtubeData.map((item) => {
-        return <Card key={item.etag} data={item} />;
+      {videos.map((item) => {
+        return <Card key={item.etag} data={item} onSelect={handleSelect} />;
       })}
     </Containerlist>
   );

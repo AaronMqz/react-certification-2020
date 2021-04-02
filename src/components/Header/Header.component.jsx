@@ -1,41 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
+import { useHistory, useLocation } from 'react-router-dom';
+import { Header, AlignLeft, AlignRight } from './Header.styled';
 import InputSearch from '../InputSearch';
 import Toogle from '../Toogle';
 import { MenuIcon } from '../Menu';
 import { LoginIcon } from '../LoginButton';
-
-const Header = styled.header`
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  align-items: center;
-  background-color: lightcoral;
-  height: 55px;
-  padding: 10px;
-`;
-
-const AlignLeft = styled.div`
-  display: flex;
-  align-items: center;
-  width: 50%;
-`;
-
-const AlignRight = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 50%;
-`;
+import { useVideoContext } from '../../utils/store/context';
 
 const HeaderComponent = () => {
+  const { getYoutubeSearch } = useVideoContext();
+  const { push } = useHistory();
+  const location = useLocation();
+
+  const handleEnterKey = (e) => {
+    if (e.key === 'Enter') {
+      getYoutubeSearch(e.target.value);
+      if (location !== '/') push(`/`);
+    }
+  };
+
   return (
     <Header data-testid="header">
       <AlignLeft>
         <MenuIcon />
-        <InputSearch />
+        <InputSearch handleEnterKey={handleEnterKey} />
       </AlignLeft>
-
       <AlignRight>
         <Toogle />
         <LoginIcon />
