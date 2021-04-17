@@ -15,8 +15,3 @@ export const LoginIcon = () => {
     </IconLogin>
   );
 };
-
-/** Pending... */
-export const LoginMenuComponent = () => {
-  return <></>;
-};

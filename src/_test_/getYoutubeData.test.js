@@ -1,18 +1,5 @@
-import axios from 'axios';
 import { mockData } from '../service/mockData';
-
-export const useService = () => {
-  const getYoutubeVideoSearch = (search, maxResults) => {
-    const URL =
-      'https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyAqIkh7Mx1wSAncxU1N8BdZMXXwMsvAC3I&part=snippet&channelType=any&type=video';
-    const searchParams = `${URL}&q=${search}&maxResults=${maxResults}`;
-    return axios.get(searchParams).catch((error) => {
-      throw error;
-    });
-  };
-
-  return { getYoutubeVideoSearch };
-};
+import { useService } from '../utils/hooks/useService';
 
 describe('Youtube Data', () => {
   test('it should return an array', async () => {

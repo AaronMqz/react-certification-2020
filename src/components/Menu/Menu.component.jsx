@@ -1,22 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { IconMenu } from './Menu.styled';
 
-export const MenuIcon = () => {
+export const MenuIcon = ({ handleClick }) => {
   return (
-    <IconMenu>
+    <IconMenu onClick={handleClick} data-testid="iconMenuClick">
       <FontAwesomeIcon
-        icon={faBars}
-        style={{ fontSize: 20, color: 'white' }}
+        icon={faHome}
+        style={{ fontSize: 20, color: 'white', cursor: 'pointer' }}
         title="Menu"
         data-testid="menu"
       />
     </IconMenu>
   );
-};
-
-/** Pending... */
-export const MenuComponent = () => {
-  return <></>;
 };

@@ -36,9 +36,9 @@ const VideoDetailPage = () => {
   const handleSelect = (videoId) => {
     push(`/detail/${videoId}`);
   };
-  console.log(video);
+
   return (
-    <Container>
+    <Container data-testid="videoDetail">
       <ContainerVideo>
         <Video>
           <iframe

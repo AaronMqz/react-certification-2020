@@ -1,14 +1,6 @@
 import { useService } from '../hooks/useService';
+import { ACTIONS } from '../constants';
 // import { mockData } from '../../service/mockData';
-
-export const ACTIONS = {
-  FETCHING: 'FETCHING',
-  ERROR: 'ERROR',
-  VIDEO: {
-    SEARCH: 'SEARCH',
-    DETAIL: 'DETAIL',
-  },
-};
 
 export const getYoutubeSearch = (dispatch) => (search) => {
   dispatch({ type: ACTIONS.REQUEST });
@@ -18,7 +10,6 @@ export const getYoutubeSearch = (dispatch) => (search) => {
     try {
       const videoSearchList = await getYoutubeVideoSearch(search);
       // const videoSearchList = mockData;
-
       dispatch({
         type: ACTIONS.VIDEO.SEARCH,
         // payload: videoSearchList.items,
@@ -46,4 +37,10 @@ export const setVideoDetail = (dispatch, state) => (videoIdSelected) => {
     payload: { title, description, publishedAt, channelTitle },
   });
   return setVideoDetail();
+};
+
+export const setTheme = (dispatch) => (themeSelected) => {
+  dispatch({
+    type: themeSelected,
+  });
 };

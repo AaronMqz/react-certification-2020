@@ -1,1 +1,1 @@
-export { LoginIcon, LoginMenuComponent } from './LoginButton.component';
+export { LoginIcon } from './LoginButton.component';

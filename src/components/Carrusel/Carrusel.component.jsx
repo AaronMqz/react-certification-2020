@@ -4,17 +4,22 @@ import './Carrusel.styles.css';
 
 const Carrusel = ({ data, onSelect }) => {
   return (
-    <div className="wrapper">
+    <div className="wrapper" data-testid="carrusel">
       <section>
         {data.map((item) => {
           return (
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div
+              data-testid="carruselItemClick"
               key={item.id.videoId}
               className="item"
               onClick={() => onSelect(item.id.videoId)}
             >
-              <img src={item.snippet.thumbnails.medium.url} alt={item.snippet.title} />
+              <img
+                data-testid="carruselItem"
+                src={item.snippet.thumbnails.medium.url}
+                alt={item.snippet.title}
+              />
               <h1 className="heading">{item.snippet.title}</h1>
             </div>
           );

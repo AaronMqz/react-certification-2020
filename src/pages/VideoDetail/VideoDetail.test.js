@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import Layout from './index';
+import VideoDetailPage from './index';
 import { VideoProvider, ThemeProvider } from '../../utils/store/providers';
 
-it('should contain Header component', () => {
+test('Display Not found Page', () => {
   render(
     <VideoProvider>
       <ThemeProvider>
         <BrowserRouter>
-          <Layout />
+          <VideoDetailPage />
         </BrowserRouter>
       </ThemeProvider>
     </VideoProvider>
   );
-  const result = screen.getByTestId('header');
+  const result = screen.getByTestId('videoDetail');
   expect(result).toBeInTheDocument();
 });

@@ -1,4 +1,4 @@
-import { ACTIONS } from './actions';
+import { ACTIONS, THEME_OPTION } from '../constants';
 
 export const init = {
   videos: [],
@@ -11,6 +11,10 @@ export const init = {
   isFeching: false,
   isError: false,
   search: '',
+};
+
+export const initTheme = {
+  theme: THEME_OPTION.DARK,
 };
 
 export const youtubeReducer = (state = init, { type, payload }) => {
@@ -37,6 +41,23 @@ export const youtubeReducer = (state = init, { type, payload }) => {
         ...state,
         isFeching: false,
         isError: payload.error,
+      };
+    default:
+      return state;
+  }
+};
+
+export const themeReducer = (state = initTheme, { type }) => {
+  switch (type) {
+    case ACTIONS.THEME.DARK:
+      return {
+        ...state,
+        theme: THEME_OPTION.DARK,
+      };
+    case ACTIONS.THEME.LIGHT:
+      return {
+        ...state,
+        theme: THEME_OPTION.LIGHT,
       };
     default:
       return state;

@@ -19,10 +19,14 @@ const HeaderComponent = () => {
     }
   };
 
+  const handleClickHome = () => {
+    push(`/`);
+  };
+
   return (
     <Header data-testid="header">
       <AlignLeft>
-        <MenuIcon />
+        <MenuIcon handleClick={handleClickHome} />
         <InputSearch handleEnterKey={handleEnterKey} />
       </AlignLeft>
       <AlignRight>
