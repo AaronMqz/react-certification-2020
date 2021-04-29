@@ -23,7 +23,7 @@ const FavoritePage = () => {
   };
 
   const getFavorites = () => {
-    return getFavoritesStorage(user.name);
+    return getFavoritesStorage(user?.name);
   };
 
   return (
@@ -31,7 +31,7 @@ const FavoritePage = () => {
       {favorites.length > 0 ? (
         <List dataList={getFavorites()} handleSelect={handleSelect} />
       ) : (
-        <Favorite.EmptyContainer>
+        <Favorite.EmptyContainer data-testid="favoriteEmpty">
           <FavoriteIcon size={120} />
           <Favorite.Label>Empty Favorites</Favorite.Label>
         </Favorite.EmptyContainer>
