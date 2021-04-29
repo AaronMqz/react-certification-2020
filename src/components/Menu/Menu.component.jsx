@@ -8,7 +8,7 @@ export const MenuIcon = ({ handleClick }) => {
     <IconMenu onClick={handleClick} data-testid="iconMenuClick">
       <FontAwesomeIcon
         icon={faHome}
-        style={{ fontSize: 20, color: 'white', cursor: 'pointer' }}
+        style={{ fontSize: 25, color: 'white', cursor: 'pointer' }}
         title="Menu"
         data-testid="menu"
       />
