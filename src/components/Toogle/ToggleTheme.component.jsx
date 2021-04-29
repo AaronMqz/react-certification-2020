@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Toogle, Label } from './ToogleTheme.styled';
+import { Container, Toogle } from './ToogleTheme.styled';
 import { useThemeContext } from '../../utils/store/context';
 import { ACTIONS } from '../../utils/constants';
 
 const ToggleButton = () => {
   const [disabled, setDisabled] = useState(false);
-  const { setTheme, theme } = useThemeContext();
+  const { setTheme } = useThemeContext();
 
   const handleToogle = () => {
     setDisabled(!disabled);
@@ -14,10 +14,9 @@ const ToggleButton = () => {
 
   return (
     <>
-      <Container onClick={() => handleToogle()} data-testid="toogle">
-        <Toogle disabled={disabled} />
+      <Container onClick={() => handleToogle()} data-testid="toogleClick">
+        <Toogle disabled={disabled} data-testid="toogle" />
       </Container>
-      <Label>{theme.label}</Label>
     </>
   );
 };

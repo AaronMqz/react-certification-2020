@@ -8,7 +8,7 @@ test('Display Input search component', () => {
   expect(result).toBeInTheDocument();
 });
 
-test('Display Input search component', () => {
+test('Handle EnterKey', () => {
   const mockOnClick = jest.fn();
   render(<Input handleEnterKey={() => mockOnClick()} />);
   const result = screen.getByTestId('input-search');

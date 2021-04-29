@@ -9,6 +9,14 @@ export const ACTIONS = {
     LIGHT: 'LIGHT',
     DARK: 'DARK',
   },
+  AUTH: {
+    SUCCESS: 'SUCCESS',
+    LOGOUT: 'LOGOUT',
+  },
+  FAVORITE: {
+    ADD: 'ADD',
+    UPDATE: 'UPDATE',
+  },
 };
 
 export const THEME_OPTION = {

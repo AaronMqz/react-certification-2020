@@ -9,3 +9,8 @@ export const ThemeContext = React.createContext(null);
 export const useThemeContext = () => {
   return useContext(ThemeContext);
 };
+
+export const AuthContext = React.createContext(null);
+export const useAuthContext = () => {
+  return useContext(AuthContext);
+};

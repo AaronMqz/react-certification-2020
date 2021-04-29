@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import VideoDetailPage from './index';
 import { VideoProvider, ThemeProvider } from '../../utils/store/providers';
 
-test('Display Not found Page', () => {
+test('Display video detail', () => {
   render(
     <VideoProvider>
       <ThemeProvider>
