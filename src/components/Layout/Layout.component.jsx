@@ -1,9 +1,16 @@
 import React from 'react';
-
-import './Layout.styles.css';
+import Header from '../Header/Header.component';
+import { useThemeContext } from '../../utils/store/context';
 
 function Layout({ children }) {
-  return <main className="container">{children}</main>;
+  const { theme } = useThemeContext();
+
+  return (
+    <div data-testid="layout" className={theme.class}>
+      <Header />
+      <main>{children}</main>
+    </div>
+  );
 }
 
 export default Layout;

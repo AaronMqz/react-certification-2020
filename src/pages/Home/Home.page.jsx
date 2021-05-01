@@ -1,39 +1,68 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import Loader from 'react-loader-spinner';
+import { useHistory } from 'react-router-dom';
+import List from '../../components/List';
+import { useVideoContext, useAuthContext } from '../../utils/store/context';
+import { Home } from './Home.styled';
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+const HomePage = () => {
+  const {
+    videos,
+    search,
+    getYoutubeSearch,
+    loadFavorites,
+    isFetching,
+  } = useVideoContext();
+  const { user, getCurrentSession } = useAuthContext();
+  const { push } = useHistory();
+  const listInnerRef = useRef();
 
-function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+  useEffect(() => {
+    getYoutubeSearch('');
+    getCurrentSession();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+  useEffect(() => {
+    if (user) {
+      // after login, load favorites from localstorage
+      loadFavorites(user.name);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  const handleSelect = (videoId) => {
+    push(`/detail/${videoId}`);
+  };
+
+  const handleScroll = () => {
+    if (listInnerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
+      if (scrollTop + clientHeight === scrollHeight) {
+        getYoutubeSearch(search, videos.length + 5);
+      }
+    }
+  };
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
+    <>
+      {isFetching && (
+        <Home.Spinner>
+          <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            visible={isFetching}
+          />
+        </Home.Spinner>
       )}
-    </section>
+      <Home.VideoResult>Results: {videos.length}</Home.VideoResult>
+      <Home.HandleScrool onScroll={() => handleScroll()} ref={listInnerRef}>
+        <List dataList={videos} handleSelect={handleSelect} />
+      </Home.HandleScrool>
+    </>
   );
-}
+};
 
 export default HomePage;
