@@ -26,6 +26,10 @@ body {
   background-color: #000;
 }
 
+main {
+  padding-top: 50px;
+}
+
 .separator::before {
   content: '•';
   color: white;
@@ -40,4 +44,19 @@ a {
 
 a:active {
   color: blueviolet;
+}
+
+.dark {
+  background: #131313;
+  color: #ffffff;
+}
+
+.light {
+  background: white;
+}
+.light h1 {
+  color: #000;
+}
+.light h2 {
+  color: grey;
 }

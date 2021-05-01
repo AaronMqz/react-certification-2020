@@ -1,1 +1,1 @@
-export { MenuIcon, MenuComponent } from './Menu.component';
+export { MenuIcon } from './Menu.component';

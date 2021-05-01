@@ -9,8 +9,6 @@ const Section = styled.div`
   min-width: 250px;
   max-width: 300px;
   padding: 15px 20px;
-  -webkit-box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 0.37);
-  box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.37);
   margin-bottom: 10px;
   margin-top: 10px;
   box-sizing: content-box;
@@ -34,22 +32,51 @@ const Description = styled.p`
   color: grey;
 `;
 
-const CardImageContainer = styled.div`
+const ImageContainer = styled.div`
   width: 100%;
   margin-bottom: 10px;
+  position: relative;
 `;
 
-const CardImageBody = styled.img`
+const ImageBody = styled.img`
   left: 0;
   top: 0;
   width: 100%;
 `;
 
-export {
+const FavoriteIconContainer = styled.div`
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+`;
+
+const FavoriteIconBody = styled.div`
+  padding-right: 10px;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const CardItem = {
   Section,
   DescriptionContainer,
   Title,
   Description,
-  CardImageContainer,
-  CardImageBody,
+  ImageContainer,
+  ImageBody,
+  FavoriteIconContainer,
+  FavoriteIconBody,
 };
+
+/**
+ * ${(props) =>
+    props.hoverThemeColor === 'light'
+      ? '&:hover{opacity: 0.6;}'
+      : '&:hover{opacity: 0.6;}'}
+ */
