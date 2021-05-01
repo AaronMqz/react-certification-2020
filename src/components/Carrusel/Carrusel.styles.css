@@ -1,0 +1,40 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 100%);
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+.wrapper section {
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(100, auto);
+  margin: 20px 0;
+}
+.wrapper section .item {
+  position: relative;
+  margin: 0 2px;
+  transition: 250ms all;
+}
+.wrapper section .item h1 {
+  text-align: center;
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.8);
+}
+.wrapper section .item:hover {
+  margin: 0 40px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.wrapper section .item .heading {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+}
+.wrapper section .item .duration {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  color: #fff;
+}

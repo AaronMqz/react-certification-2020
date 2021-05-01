@@ -1,47 +1,40 @@
 import { mockData } from '../service/mockData';
-
-const useService = () => {
-  const getYoutubeData = () => {
-    return mockData.items;
-  };
-
-  return { getYoutubeData };
-};
+import { useService } from '../utils/hooks/useService';
 
 describe('Youtube Data', () => {
-  test('it should return an array', () => {
-    const { getYoutubeData } = useService();
-    const result = getYoutubeData();
-    expect(Array.isArray(result)).toBe(true);
+  test('it should return an array', async () => {
+    const { getYoutubeVideoSearch } = useService();
+    const result = await getYoutubeVideoSearch('', 30);
+    expect(Array.isArray(result.data.items)).toBe(true);
   });
 
-  test('it should return a valid array', () => {
-    const { getYoutubeData } = useService();
-    const result = getYoutubeData();
-    expect(result).toMatchObject(mockData.items);
+  test('it should return a valid array', async () => {
+    const { getYoutubeVideoSearch } = useService();
+    const result = await getYoutubeVideoSearch('wizeline', 30);
+    expect(result.data.items[0]).toMatchObject(mockData.items[0]);
   });
 
-  test('it should return 25 elements', () => {
-    const { getYoutubeData } = useService();
-    const result = getYoutubeData();
-    expect(result.length).toBe(25);
+  test('it should return 30 elements', async () => {
+    const { getYoutubeVideoSearch } = useService();
+    const result = await getYoutubeVideoSearch('', 30);
+    expect(result.data.items.length).toBe(30);
   });
 
-  test('it should have a title property', () => {
-    const { getYoutubeData } = useService();
-    const result = getYoutubeData()[0].snippet;
-    expect(result).toHaveProperty('title');
+  test('it should have a title property', async () => {
+    const { getYoutubeVideoSearch } = useService();
+    const result = await getYoutubeVideoSearch('', 30);
+    expect(result.data.items[0].snippet).toHaveProperty('title');
   });
 
-  test('it should have a description property', () => {
-    const { getYoutubeData } = useService();
-    const result = getYoutubeData()[0].snippet;
-    expect(result).toHaveProperty('description');
+  test('it should have a description property', async () => {
+    const { getYoutubeVideoSearch } = useService();
+    const result = await getYoutubeVideoSearch('', 30);
+    expect(result.data.items[0].snippet).toHaveProperty('description');
   });
 
-  test('it should have a thumbnails property', () => {
-    const { getYoutubeData } = useService();
-    const result = getYoutubeData()[0].snippet;
-    expect(result).toHaveProperty('thumbnails');
+  test('it should have a thumbnails property', async () => {
+    const { getYoutubeVideoSearch } = useService();
+    const result = await getYoutubeVideoSearch('', 30);
+    expect(result.data.items[0].snippet).toHaveProperty('thumbnails');
   });
 });

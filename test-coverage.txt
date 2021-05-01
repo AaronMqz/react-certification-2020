@@ -1,56 +1,117 @@
- PASS  src/components/Card/Card.test.js
- PASS  src/index.test.js (5.262s)
- PASS  src/components/App/App.test.js (5.749s)
- PASS  src/_test_/getYoutubeData.test.js
- PASS  src/pages/NotFound/NotFound.test.js
- PASS  src/components/Header/Header.test.js
+
+ PASS  src/index.test.js (6.087s)
+ PASS  src/components/Carrusel/Carrusel.test.js (6.283s)
+ PASS  src/pages/Favorites/Favorite.test.js
+ PASS  src/_test_/getYoutubeData.test.js (7.23s)
  PASS  src/components/Layout/Layout.test.js
- PASS  src/components/Menu/Menu.test.js
+ PASS  src/components/Card/Card.test.js
  PASS  src/components/LoginButton/Login.test.js
+ PASS  src/components/List/List.test.js
+ PASS  src/pages/NotFound/NotFound.test.js
+ PASS  src/pages/FavoriteDetail/FavoriteDetail.test.js
+ PASS  src/components/Header/Header.test.js
+ PASS  src/pages/VideoDetail/VideoDetail.test.js
+ PASS  src/components/LoginForm/LoginForm.test.js
+ PASS  src/components/App/App.test.js
+ PASS  src/components/FavoriteButton/Favorite.test.js
+ PASS  src/components/Menu/Menu.test.js
  PASS  src/components/InputSearch/InputSearch.test.js
  PASS  src/components/Toogle/ToogleTheme.test.js
-----------------------------|----------|----------|----------|----------|-------------------|
-File                        |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
-----------------------------|----------|----------|----------|----------|-------------------|
-All files                   |    93.75 |       50 |    83.33 |    93.75 |                   |
- components/App             |      100 |      100 |      100 |      100 |                   |
-  App.component.jsx         |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- components/Card            |      100 |      100 |      100 |      100 |                   |
-  Card.component.jsx        |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- components/Header          |      100 |      100 |      100 |      100 |                   |
-  Header.component.jsx      |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- components/InputSearch     |      100 |      100 |      100 |      100 |                   |
-  InputSearch.component.jsx |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- components/Layout          |      100 |      100 |      100 |      100 |                   |
-  Layout.component.jsx      |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- components/LoginButton     |       80 |      100 |       50 |       80 |                   |
-  LoginButton.component.jsx |       80 |      100 |       50 |       80 |                32 |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- components/Menu            |       80 |      100 |       50 |       80 |                   |
-  Menu.component.jsx        |       80 |      100 |       50 |       80 |                26 |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- components/Toogle          |     87.5 |       50 |    66.67 |     87.5 |                   |
-  ToggleTheme.component.jsx |     87.5 |       50 |    66.67 |     87.5 |                45 |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- pages/Home                 |      100 |      100 |      100 |      100 |                   |
-  Home.page.jsx             |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- pages/NotFound             |      100 |      100 |      100 |      100 |                   |
-  NotFound.page.jsx         |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- service                    |      100 |      100 |      100 |      100 |                   |
-  mockData.js               |      100 |      100 |      100 |      100 |                   |
- utils/hooks                |      100 |      100 |      100 |      100 |                   |
-  useService.js             |      100 |      100 |      100 |      100 |                   |
-----------------------------|----------|----------|----------|----------|-------------------|
+-------------------------------|----------|----------|----------|----------|-------------------|
+File                           |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-------------------------------|----------|----------|----------|----------|-------------------|
+All files                      |       70 |    32.53 |    60.38 |    70.42 |                   |
+ components/App                |      100 |      100 |      100 |      100 |                   |
+  App.component.jsx            |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/Card               |    76.19 |    33.33 |    28.57 |    76.19 |                   |
+  Card.component.jsx           |    58.33 |    33.33 |    28.57 |    58.33 |    14,15,23,24,25 |
+  Card.styled.js               |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/Carrusel           |      100 |      100 |      100 |      100 |                   |
+  Carrusel.component.jsx       |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/DetailComponent    |      100 |      100 |      100 |      100 |                   |
+  Detail.component.jsx         |      100 |      100 |      100 |      100 |                   |
+  Detail.styled.js             |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/FavoriteButton     |      100 |       50 |      100 |      100 |                   |
+  Favorite.styled.js           |      100 |      100 |      100 |      100 |                   |
+  FavoriteButton.component.jsx |      100 |       50 |      100 |      100 |                11 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/Header             |    71.43 |       25 |       25 |       75 |                   |
+  Header.component.jsx         |    53.85 |       25 |       25 |    58.33 |    18,19,20,27,29 |
+  Header.styled.js             |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/InputSearch        |      100 |      100 |      100 |      100 |                   |
+  Input.styled.js              |      100 |      100 |      100 |      100 |                   |
+  InputSearch.component.jsx    |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/Layout             |      100 |      100 |      100 |      100 |                   |
+  Layout.component.jsx         |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/List               |    68.75 |        0 |       50 |    73.33 |                   |
+  List.component.jsx           |    66.67 |        0 |       50 |    71.43 |       16,17,19,30 |
+  List.styled.js               |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/LoginButton        |      100 |       50 |      100 |      100 |                   |
+  Login.styled.js              |      100 |      100 |      100 |      100 |                   |
+  LoginButton.component.jsx    |      100 |       50 |      100 |      100 |          16,18,20 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/LoginForm          |    77.27 |    33.33 |       50 |    77.27 |                   |
+  LoginForm.component.jsx      |    64.29 |    33.33 |       50 |    64.29 |    11,15,19,20,26 |
+  LoginForm.styled.js          |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/Menu               |      100 |      100 |      100 |      100 |                   |
+  Menu.component.jsx           |      100 |      100 |      100 |      100 |                   |
+  Menu.styled.js               |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/Modal              |    42.86 |        0 |        0 |       50 |                   |
+  Modal.component.jsx          |       20 |        0 |        0 |       25 |             6,7,9 |
+  Modal.styled.js              |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ components/Toogle             |      100 |       75 |      100 |      100 |                   |
+  ToggleTheme.component.jsx    |      100 |       50 |      100 |      100 |                12 |
+  ToogleTheme.styled.js        |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ pages/FavoriteDetail          |    83.33 |       50 |    66.67 |    83.33 |                   |
+  FavoriteDetail.page.jsx      |    83.33 |       50 |    66.67 |    83.33 |             15,21 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ pages/Favorites               |    93.33 |       50 |       75 |    93.33 |                   |
+  Favorite.page.jsx            |    91.67 |       50 |       75 |    91.67 |                22 |
+  Favorite.styled.js           |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ pages/Home                    |    70.83 |     37.5 |       50 |    70.83 |                   |
+  Home.page.jsx                |       65 |     37.5 |       50 |       65 |... 39,40,41,42,61 |
+  Home.styled.js               |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ pages/NotFound                |    66.67 |      100 |       50 |    66.67 |                   |
+  NotFound.page.jsx            |    66.67 |      100 |       50 |    66.67 |                14 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ pages/VideoDetail             |    81.82 |       50 |    66.67 |    81.82 |                   |
+  VideoDetail.page.jsx         |    81.82 |       50 |    66.67 |    81.82 |             15,21 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ router                        |       50 |        0 |    33.33 |       50 |                   |
+  index.js                     |      100 |      100 |      100 |      100 |                   |
+  privateRoute.js              |       25 |        0 |        0 |       25 |            6,7,10 |
+ service                       |      100 |      100 |      100 |      100 |                   |
+  mockData.js                  |      100 |      100 |      100 |      100 |                   |
+  mockUser.js                  |      100 |      100 |      100 |      100 |                   |
+ utils                         |      100 |      100 |      100 |      100 |                   |
+  constants.js                 |      100 |      100 |      100 |      100 |                   |
+ utils/hooks                   |     54.9 |    36.36 |    41.18 |    57.14 |                   |
+  useLocalStorage.js           |       50 |       50 |       50 |       50 |... 31,41,46,47,50 |
+  useModal.js                  |    77.78 |       50 |       50 |      100 |                10 |
+  useService.js                |       50 |       20 |    28.57 |       50 |... 12,17,18,20,28 |
+ utils/store                   |    57.27 |       20 |    70.97 |       54 |                   |
+  actions.js                   |    46.15 |       50 |    59.09 |    38.18 |... 24,126,130,131 |
+  context.js                   |      100 |      100 |      100 |      100 |                   |
+  providers.js                 |      100 |      100 |      100 |      100 |                   |
+  reducers.js                  |       50 |    16.67 |      100 |       50 |... ,93,99,103,109 |
+-------------------------------|----------|----------|----------|----------|-------------------|
 
-Test Suites: 11 passed, 11 total
-Tests:       16 passed, 16 total
+Test Suites: 18 passed, 18 total
+Tests:       29 passed, 29 total
 Snapshots:   0 total
-Time:        11.717s
+Time:        16.761s
 Ran all test suites.

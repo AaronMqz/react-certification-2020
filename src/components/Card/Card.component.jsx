@@ -1,40 +1,41 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { CardItem } from './Card.styled';
+import { FavoriteIcon } from '../FavoriteButton';
+import { useAuthContext } from '../../utils/store/context';
 
-const Section = styled.div`
-  background: white;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-  min-width: 250px;
-  max-width: 300px;
-  padding: 15px 20px;
-  -webkit-box-shadow: 0px -1px 11px 2px rgba(0, 0, 0, 0.37);
-  box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.37);
-  margin-bottom: 10px;
-  margin-top: 10px;
-`;
-
-const Title = styled.h1`
-  font-size: 16px;
-`;
-
-const Description = styled.p`
-  font-size: 14px;
-`;
-
-const Card = ({ data: { snippet } }) => {
+const Card = ({ data: { snippet, id }, onSelect, onSelectFavorite, isFavorite }) => {
   const { thumbnails, title, description } = snippet;
+  const [showFavorite, setShowFavorite] = useState(false);
+  const [hoverFavoriteArea, setHoverFavoriteArea] = useState(false);
+  const { user } = useAuthContext();
+
   return (
-    <Section>
-      <div className="card__image">
-        <img src={thumbnails.high.url} alt={title} />
-      </div>
-      <Title>{title}</Title>
-      <Description>{description}</Description>
-    </Section>
+    <CardItem.Section
+      onMouseEnter={() => setShowFavorite(true)}
+      onMouseLeave={() => setShowFavorite(false)}
+      onClick={() => (hoverFavoriteArea ? false : onSelect(id.videoId))}
+      data-testid="cardOnClick"
+    >
+      <CardItem.ImageContainer>
+        {showFavorite && (
+          <CardItem.FavoriteIconContainer>
+            <CardItem.FavoriteIconBody
+              onMouseEnter={() => setHoverFavoriteArea(true)}
+              onMouseLeave={() => setHoverFavoriteArea(false)}
+              onClick={() => onSelectFavorite(id.videoId)}
+              data-testid="cardFavoriteOnClick"
+            >
+              {user && <FavoriteIcon size={25} isFavorite={isFavorite} />}
+            </CardItem.FavoriteIconBody>
+          </CardItem.FavoriteIconContainer>
+        )}
+        <CardItem.ImageBody src={thumbnails.high.url} alt={title} />
+      </CardItem.ImageContainer>
+      <CardItem.DescriptionContainer>
+        <CardItem.Title>{title}</CardItem.Title>
+        <CardItem.Description>{description}</CardItem.Description>
+      </CardItem.DescriptionContainer>
+    </CardItem.Section>
   );
 };
 
